@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-/*
-	Aqui se hace el "cuerpo", para la creacion de margenes junto al ancho y el alto 
+
+/*	Aqui se hace el "cuerpo", para la creacion de margenes junto al ancho y el alto 
 	de la pantalla donde se visibilizara la imagen
 */
 	<meta charset="utf-8">
@@ -12,7 +12,6 @@
 		canvas { width: 100%; height: 100%; }
 
 //	Comandos que se ejecutan para la correcta ejecucion del proyecto
-
 	</style>
 </head>
 <body>
@@ -20,7 +19,6 @@
 /* 	En esta linea de codigo se aplica la "busqueda" de la libreria de three.js que se utilizara
 	para el proyecto, esta libreria puede aplicarse manera local y de manera web
 */
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 
@@ -34,20 +32,28 @@
 /*	En la zona de renderizado se crea la variable junto al comando pre establecido de renderer
 	junto con antialias en modo true, este antialias se conoce como el antialiasing lo cual 
 	conlleva a la funcion de definir las lineas para que estas no se vean pixeladas
-
 */
 	var renderer = new THREE.WebGLRenderer({antialias:true});
 	renderer.setSize(WIDTH, HEIGHT);
 
-//	Aca se define el color de la pantalla
+/*	Aca se define el color de limpieza de la pantalla y en la segunda linea correspondiente 
+	el renderizado al cuerpo del proyecto
+*/
 	renderer.setClearColor(0xDDDDDD, 1);
 	document.body.appendChild(renderer.domElement);
 
+//	Esta linea corresponde a la creacion de la escena o fondo de la imagen
 	var scene = new THREE.Scene();
 
+//	Esta linea corresponde a la creacion de la camra con su respectiva perspectiva 
 	var camera = new THREE.PerspectiveCamera(70, WIDTH/HEIGHT);
+
+/*	Aqui se ubica la posicion de la camera junto a su eje de traslacion y luego se añade la camara
+	creada, a la escena
+*/
 	camera.position.z = 50;
 	scene.add(camera);
+
 
 	var boxGeometry = new THREE.BoxGeometry(10, 10, 10);
 	var basicMaterial = new THREE.MeshBasicMaterial({color: 0x0095DD});
