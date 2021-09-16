@@ -51,15 +51,22 @@
 /*	Aqui se ubica la posicion de la camera junto a su eje de traslacion y luego se añade la camara
 	creada, a la escena
 */
-	camera.position.z = 50;
+	camera.position.z = 60;
+	camera.position.x = 20;
 	scene.add(camera);
 
+	const axesHelper = new THREE.AxesHelper( 35 );
+	scene.add( axesHelper );
 
 	var boxGeometry = new THREE.BoxGeometry(10, 10, 10);
-	var basicMaterial = new THREE.MeshBasicMaterial({color: 0x0095DD});
+	var basicMaterial = new THREE.MeshLambertMaterial({color: 0x0095DD});
 	var cube = new THREE.Mesh(boxGeometry, basicMaterial);
 	scene.add(cube);
 	cube.rotation.set(0.4, 0.2, 0);
+	
+	var light = new THREE.PointLight(0xFFFFFF);
+	light.position.set(-10, 15, 50);
+	scene.add(light);
 
 	function render() {
 		requestAnimationFrame(render);
